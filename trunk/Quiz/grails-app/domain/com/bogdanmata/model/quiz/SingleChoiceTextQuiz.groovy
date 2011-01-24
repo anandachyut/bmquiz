@@ -7,9 +7,7 @@ class SingleChoiceTextQuiz extends AbstractQuiz {
 	
 	SingleChoiceTextQuizResponse correctResponse
 	
-	static hasMany = {
-		responses: SingleChoiceTextQuizResponse
-	}
+	static hasMany = [responses: SingleChoiceTextQuizResponse]
 
     static constraints = {
 		correctResponse nullable: false
