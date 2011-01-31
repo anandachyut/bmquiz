@@ -16,7 +16,7 @@
         <div class="body">
             <h1><g:message code="default.show.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
-            <g:render template="/templates/info"></g:render>
+            <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
                 <table>
@@ -30,9 +30,92 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.groups.label" default="Groups" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${abstractQuizInstance.groups}" var="g">
+                                    <li><g:link controller="quizGroupMapping" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="abstractQuiz.help.label" default="Help" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "help")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpDe.label" default="Help De" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "helpDe")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpDeValidate.label" default="Help De Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.helpDeValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpEs.label" default="Help Es" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "helpEs")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpEsValidate.label" default="Help Es Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.helpEsValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpFr.label" default="Help Fr" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "helpFr")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpFrValidate.label" default="Help Fr Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.helpFrValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpIt.label" default="Help It" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "helpIt")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpItValidate.label" default="Help It Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.helpItValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpRo.label" default="Help Ro" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "helpRo")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.helpRoValidate.label" default="Help Ro Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.helpRoValidate}" /></td>
                             
                         </tr>
                     
@@ -44,9 +127,149 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintDe.label" default="Hint De" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "hintDe")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintDeValidate.label" default="Hint De Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.hintDeValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintEs.label" default="Hint Es" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "hintEs")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintEsValidate.label" default="Hint Es Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.hintEsValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintFr.label" default="Hint Fr" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "hintFr")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintFrValidate.label" default="Hint Fr Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.hintFrValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintIt.label" default="Hint It" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "hintIt")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintItValidate.label" default="Hint It Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.hintItValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintRo.label" default="Hint Ro" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "hintRo")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.hintRoValidate.label" default="Hint Ro Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.hintRoValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="abstractQuiz.question.label" default="Question" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "question")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionDe.label" default="Question De" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "questionDe")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionDeValidate.label" default="Question De Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.questionDeValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionEs.label" default="Question Es" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "questionEs")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionEsValidate.label" default="Question Es Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.questionEsValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionFr.label" default="Question Fr" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "questionFr")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionFrValidate.label" default="Question Fr Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.questionFrValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionIt.label" default="Question It" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "questionIt")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionItValidate.label" default="Question It Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.questionItValidate}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionRo.label" default="Question Ro" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: abstractQuizInstance, field: "questionRo")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="abstractQuiz.questionRoValidate.label" default="Question Ro Validate" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${abstractQuizInstance?.questionRoValidate}" /></td>
                             
                         </tr>
                     

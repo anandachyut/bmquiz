@@ -14,9 +14,10 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:postgresql://localhost:5432/quiz"
-			username = "bogdan"
-			password = "admin"
+//            url = "jdbc:postgresql://localhost:5432/quiz"
+//			username = "bogdan"
+//			password = "admin"
+			url = "jdbc:hsqldb:mem:testDb"
         }
     }
     test {

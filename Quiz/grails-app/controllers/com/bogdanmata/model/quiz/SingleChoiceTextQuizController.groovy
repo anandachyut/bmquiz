@@ -1,5 +1,8 @@
 package com.bogdanmata.model.quiz
 
+import com.bogdanmata.generic.generator.IdGenerator;
+import com.bogdanmata.model.quiz.response.SingleChoiceTextQuizResponse;
+
 class SingleChoiceTextQuizController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -16,11 +19,28 @@ class SingleChoiceTextQuizController {
     def create = {
         def singleChoiceTextQuizInstance = new SingleChoiceTextQuiz()
         singleChoiceTextQuizInstance.properties = params
-        return [singleChoiceTextQuizInstance: singleChoiceTextQuizInstance]
+		
+		// add 3 empty responses
+		def responses = [:]
+		responses.put IdGenerator.getInstance().generate(), new SingleChoiceTextQuizResponse()
+		responses.put IdGenerator.getInstance().generate(), new SingleChoiceTextQuizResponse()
+		responses.put IdGenerator.getInstance().generate(), new SingleChoiceTextQuizResponse()
+		
+        return [singleChoiceTextQuizInstance: singleChoiceTextQuizInstance, responses: responses]
     }
 
     def save = {
         def singleChoiceTextQuizInstance = new SingleChoiceTextQuiz(params)
+		
+		def responses
+		
+		params.each { String key, value ->
+			if(key.endsWith("response")) {
+				
+			}
+		}
+		
+		
         if (singleChoiceTextQuizInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'singleChoiceTextQuiz.label', default: 'SingleChoiceTextQuiz'), singleChoiceTextQuizInstance.id])}"
             redirect(action: "show", id: singleChoiceTextQuizInstance.id)
