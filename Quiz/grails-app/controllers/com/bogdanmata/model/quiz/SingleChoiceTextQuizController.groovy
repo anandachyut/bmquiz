@@ -32,14 +32,21 @@ class SingleChoiceTextQuizController {
     def save = {
         def singleChoiceTextQuizInstance = new SingleChoiceTextQuiz(params)
 		
-		def responses
+		def responses = [:]
 		
 		params.each { String key, value ->
 			if(key.endsWith("response")) {
-				
+				String reponseId = key.substring(0, key.indexOf('.'))
+				if(responses[reponseId] == null) {
+					responses[reponseId] = new SingleChoiceTextQuizResponse()
+				}
 			}
 		}
 		
+		def correctKey = params[correct];
+		
+		singleChoiceTextQuizInstance.responses = responses.values()
+		singleChoiceTextQuizInstance.correctResponse = responses[correctKey]
 		
         if (singleChoiceTextQuizInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'singleChoiceTextQuiz.label', default: 'SingleChoiceTextQuiz'), singleChoiceTextQuizInstance.id])}"
