@@ -24,13 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'singleChoiceTextQuiz.id.label', default: 'Id')}" />
                         
+                            <th><g:message code="singleChoiceTextQuiz.correctResponse.label" default="Correct Response" /></th>
+                        
                             <g:sortableColumn property="help" title="${message(code: 'singleChoiceTextQuiz.help.label', default: 'Help')}" />
                         
-                            <g:sortableColumn property="hint" title="${message(code: 'singleChoiceTextQuiz.hint.label', default: 'Hint')}" />
+                            <g:sortableColumn property="helpDe" title="${message(code: 'singleChoiceTextQuiz.helpDe.label', default: 'Help De')}" />
                         
-                            <g:sortableColumn property="question" title="${message(code: 'singleChoiceTextQuiz.question.label', default: 'Question')}" />
+                            <g:sortableColumn property="helpDeValidate" title="${message(code: 'singleChoiceTextQuiz.helpDeValidate.label', default: 'Help De Validate')}" />
                         
-                            <g:sortableColumn property="type" title="${message(code: 'singleChoiceTextQuiz.type.label', default: 'Type')}" />
+                            <g:sortableColumn property="helpEs" title="${message(code: 'singleChoiceTextQuiz.helpEs.label', default: 'Help Es')}" />
                         
                         </tr>
                     </thead>
@@ -40,13 +42,15 @@
                         
                             <td><g:link action="show" id="${singleChoiceTextQuizInstance.id}">${fieldValue(bean: singleChoiceTextQuizInstance, field: "id")}</g:link></td>
                         
+                            <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "correctResponse")}</td>
+                        
                             <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "help")}</td>
                         
-                            <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "hint")}</td>
+                            <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "helpDe")}</td>
                         
-                            <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "question")}</td>
+                            <td><g:formatBoolean boolean="${singleChoiceTextQuizInstance.helpDeValidate}" /></td>
                         
-                            <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "type")}</td>
+                            <td>${fieldValue(bean: singleChoiceTextQuizInstance, field: "helpEs")}</td>
                         
                         </tr>
                     </g:each>

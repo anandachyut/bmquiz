@@ -1,5 +1,8 @@
 package com.bogdanmata.model.quiz
 
+import com.bogdanmata.generic.generator.IdGenerator;
+import com.bogdanmata.model.quiz.response.MultipleChoiceTextQuizResponse;
+
 class MultipleChoiceTextQuizController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -16,7 +19,14 @@ class MultipleChoiceTextQuizController {
     def create = {
         def multipleChoiceTextQuizInstance = new MultipleChoiceTextQuiz()
         multipleChoiceTextQuizInstance.properties = params
-        return [multipleChoiceTextQuizInstance: multipleChoiceTextQuizInstance]
+		
+		// add 3 empty responses
+		def responses = [:]
+		responses.put IdGenerator.getInstance().generate(), new MultipleChoiceTextQuizResponse()
+		responses.put IdGenerator.getInstance().generate(), new MultipleChoiceTextQuizResponse()
+		responses.put IdGenerator.getInstance().generate(), new MultipleChoiceTextQuizResponse()
+		
+        return [multipleChoiceTextQuizInstance: multipleChoiceTextQuizInstance, responses: responses]
     }
 
     def save = {

@@ -26,11 +26,13 @@
                         
                             <g:sortableColumn property="help" title="${message(code: 'multipleChoiceTextQuiz.help.label', default: 'Help')}" />
                         
-                            <g:sortableColumn property="hint" title="${message(code: 'multipleChoiceTextQuiz.hint.label', default: 'Hint')}" />
+                            <g:sortableColumn property="helpDe" title="${message(code: 'multipleChoiceTextQuiz.helpDe.label', default: 'Help De')}" />
                         
-                            <g:sortableColumn property="question" title="${message(code: 'multipleChoiceTextQuiz.question.label', default: 'Question')}" />
+                            <g:sortableColumn property="helpDeValidate" title="${message(code: 'multipleChoiceTextQuiz.helpDeValidate.label', default: 'Help De Validate')}" />
                         
-                            <g:sortableColumn property="type" title="${message(code: 'multipleChoiceTextQuiz.type.label', default: 'Type')}" />
+                            <g:sortableColumn property="helpEs" title="${message(code: 'multipleChoiceTextQuiz.helpEs.label', default: 'Help Es')}" />
+                        
+                            <g:sortableColumn property="helpEsValidate" title="${message(code: 'multipleChoiceTextQuiz.helpEsValidate.label', default: 'Help Es Validate')}" />
                         
                         </tr>
                     </thead>
@@ -42,11 +44,13 @@
                         
                             <td>${fieldValue(bean: multipleChoiceTextQuizInstance, field: "help")}</td>
                         
-                            <td>${fieldValue(bean: multipleChoiceTextQuizInstance, field: "hint")}</td>
+                            <td>${fieldValue(bean: multipleChoiceTextQuizInstance, field: "helpDe")}</td>
                         
-                            <td>${fieldValue(bean: multipleChoiceTextQuizInstance, field: "question")}</td>
+                            <td><g:formatBoolean boolean="${multipleChoiceTextQuizInstance.helpDeValidate}" /></td>
                         
-                            <td>${fieldValue(bean: multipleChoiceTextQuizInstance, field: "type")}</td>
+                            <td>${fieldValue(bean: multipleChoiceTextQuizInstance, field: "helpEs")}</td>
+                        
+                            <td><g:formatBoolean boolean="${multipleChoiceTextQuizInstance.helpEsValidate}" /></td>
                         
                         </tr>
                     </g:each>

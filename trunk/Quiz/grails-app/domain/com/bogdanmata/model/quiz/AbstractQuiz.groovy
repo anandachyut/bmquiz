@@ -56,8 +56,8 @@ class AbstractQuiz implements Serializable {
     }
 	
 	static mapping = {
-		tablePerHierarchy: false
-		discriminator column: "type"
+		tablePerHierarchy: true
+		discriminator "type"
 	}
 	
 	@Override

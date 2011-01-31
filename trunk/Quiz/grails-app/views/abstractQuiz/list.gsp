@@ -26,11 +26,13 @@
                         
                             <g:sortableColumn property="help" title="${message(code: 'abstractQuiz.help.label', default: 'Help')}" />
                         
-                            <g:sortableColumn property="hint" title="${message(code: 'abstractQuiz.hint.label', default: 'Hint')}" />
+                            <g:sortableColumn property="helpDe" title="${message(code: 'abstractQuiz.helpDe.label', default: 'Help De')}" />
                         
-                            <g:sortableColumn property="question" title="${message(code: 'abstractQuiz.question.label', default: 'Question')}" />
+                            <g:sortableColumn property="helpDeValidate" title="${message(code: 'abstractQuiz.helpDeValidate.label', default: 'Help De Validate')}" />
                         
-                            <g:sortableColumn property="type" title="${message(code: 'abstractQuiz.type.label', default: 'Type')}" />
+                            <g:sortableColumn property="helpEs" title="${message(code: 'abstractQuiz.helpEs.label', default: 'Help Es')}" />
+                        
+                            <g:sortableColumn property="helpEsValidate" title="${message(code: 'abstractQuiz.helpEsValidate.label', default: 'Help Es Validate')}" />
                         
                         </tr>
                     </thead>
@@ -42,11 +44,13 @@
                         
                             <td>${fieldValue(bean: abstractQuizInstance, field: "help")}</td>
                         
-                            <td>${fieldValue(bean: abstractQuizInstance, field: "hint")}</td>
+                            <td>${fieldValue(bean: abstractQuizInstance, field: "helpDe")}</td>
                         
-                            <td>${fieldValue(bean: abstractQuizInstance, field: "question")}</td>
+                            <td><g:formatBoolean boolean="${abstractQuizInstance.helpDeValidate}" /></td>
                         
-                            <td>${fieldValue(bean: abstractQuizInstance, field: "type")}</td>
+                            <td>${fieldValue(bean: abstractQuizInstance, field: "helpEs")}</td>
+                        
+                            <td><g:formatBoolean boolean="${abstractQuizInstance.helpEsValidate}" /></td>
                         
                         </tr>
                     </g:each>
