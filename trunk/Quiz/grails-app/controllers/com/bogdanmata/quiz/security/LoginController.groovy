@@ -1,3 +1,4 @@
+package com.bogdanmata.quiz.security
 import grails.converters.JSON
 
 import javax.servlet.http.HttpServletResponse
