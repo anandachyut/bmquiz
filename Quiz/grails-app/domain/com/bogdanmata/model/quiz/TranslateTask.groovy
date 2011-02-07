@@ -6,6 +6,7 @@ import com.bogdanmata.model.quiz.enums.Language;
 class TranslateTask {
 
 	EntityType entity
+	Long id
 	String property
 	Language language
 	

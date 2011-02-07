@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.bogdanmata.model.quiz.SingleChoiceTextQuiz" %>
 <html>
     <head>
@@ -7,6 +5,9 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'singleChoiceTextQuiz.label', default: 'SingleChoiceTextQuiz')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <script type="text/javascript">
+        	dojo.require("dijit.TitlePane");
+        </script>
     </head>
     <body>
         <div class="nav">
@@ -27,7 +28,6 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="correctResponse"><g:message code="singleChoiceTextQuiz.correctResponse.label" default="Correct Response" /></label>
@@ -36,67 +36,62 @@
                                     <g:select name="correctResponse.id" from="${com.bogdanmata.model.quiz.response.SingleChoiceTextQuizResponse.list()}" optionKey="id" value="${singleChoiceTextQuizInstance?.correctResponse?.id}"  />
                                 </td>
                             </tr>
-                        
+                        </tbody>
+                    </table>
+                    
+                    <table>
+                        <tbody>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="help"><g:message code="singleChoiceTextQuiz.help.label" default="Help" /></label>
                                 </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'help', 'errors')}">
-                                    <g:textField name="help" value="${singleChoiceTextQuizInstance?.help}" />
+                                    <g:textArea name="help" value="${singleChoiceTextQuizInstance?.help}" class="small" rows="4"/>
                                 </td>
                             </tr>
-                        
+                        </tbody>
+                    </table>
+                    
+                    <div id="help.translate" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.help.translate', default: 'Help translate')}" open="false" >
+                    <table>
+                        <tbody>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="helpDe"><g:message code="singleChoiceTextQuiz.helpDe.label" default="Help De" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpDe', 'errors')}">
-                                    <g:textField name="helpDe" value="${singleChoiceTextQuizInstance?.helpDe}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="helpDeValidate"><g:message code="singleChoiceTextQuiz.helpDeValidate.label" default="Help De Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpDeValidate', 'errors')}">
                                     <g:checkBox name="helpDeValidate" value="${singleChoiceTextQuizInstance?.helpDeValidate}" />
                                 </td>
-                            </tr>
-                        
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpDe', 'errors')}">
+                                    <g:textArea name="helpDe" value="${singleChoiceTextQuizInstance?.helpDe}" class="small" rows="4"/>
+                                </td>
+                                <td valign="middle" class="name">
+                                	<a class="fakeLink" onclick="javascript: alert('aaaaa: ' + document.getElementById('helpDe').value);">
+                                		<g:message code="default.translate.label" default="Translate" />
+                                	</a>
+                                </td>
+                            </tr>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="helpEs"><g:message code="singleChoiceTextQuiz.helpEs.label" default="Help Es" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpEs', 'errors')}">
-                                    <g:textField name="helpEs" value="${singleChoiceTextQuizInstance?.helpEs}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="helpEsValidate"><g:message code="singleChoiceTextQuiz.helpEsValidate.label" default="Help Es Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpEsValidate', 'errors')}">
                                     <g:checkBox name="helpEsValidate" value="${singleChoiceTextQuizInstance?.helpEsValidate}" />
                                 </td>
-                            </tr>
-                        
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpEs', 'errors')}">
+                                    <g:textArea name="helpEs" value="${singleChoiceTextQuizInstance?.helpEs}" class="small" rows="4"/>
+                                </td>
+                            </tr>                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="helpFr"><g:message code="singleChoiceTextQuiz.helpFr.label" default="Help Fr" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpFr', 'errors')}">
-                                    <g:textField name="helpFr" value="${singleChoiceTextQuizInstance?.helpFr}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="helpFrValidate"><g:message code="singleChoiceTextQuiz.helpFrValidate.label" default="Help Fr Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpFrValidate', 'errors')}">
                                     <g:checkBox name="helpFrValidate" value="${singleChoiceTextQuizInstance?.helpFrValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpFr', 'errors')}">
+                                    <g:textArea name="helpFr" value="${singleChoiceTextQuizInstance?.helpFr}" class="small" rows="4"/>
                                 </td>
                             </tr>
                         
@@ -104,17 +99,11 @@
                                 <td valign="top" class="name">
                                     <label for="helpIt"><g:message code="singleChoiceTextQuiz.helpIt.label" default="Help It" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpIt', 'errors')}">
-                                    <g:textField name="helpIt" value="${singleChoiceTextQuizInstance?.helpIt}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="helpItValidate"><g:message code="singleChoiceTextQuiz.helpItValidate.label" default="Help It Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpItValidate', 'errors')}">
                                     <g:checkBox name="helpItValidate" value="${singleChoiceTextQuizInstance?.helpItValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpIt', 'errors')}">
+                                    <g:textArea name="helpIt" value="${singleChoiceTextQuizInstance?.helpIt}" class="small" rows="4"/>
                                 </td>
                             </tr>
                         
@@ -122,44 +111,43 @@
                                 <td valign="top" class="name">
                                     <label for="helpRo"><g:message code="singleChoiceTextQuiz.helpRo.label" default="Help Ro" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpRo', 'errors')}">
-                                    <g:textField name="helpRo" value="${singleChoiceTextQuizInstance?.helpRo}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="helpRoValidate"><g:message code="singleChoiceTextQuiz.helpRoValidate.label" default="Help Ro Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpRoValidate', 'errors')}">
                                     <g:checkBox name="helpRoValidate" value="${singleChoiceTextQuizInstance?.helpRoValidate}" />
                                 </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'helpRo', 'errors')}">
+                                    <g:textArea name="helpRo" value="${singleChoiceTextQuizInstance?.helpRo}" class="small" rows="4"/>
+                                </td>
                             </tr>
-                        
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <table>
+                        <tbody>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="hint"><g:message code="singleChoiceTextQuiz.hint.label" default="Hint" /></label>
                                 </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hint', 'errors')}">
-                                    <g:textField name="hint" value="${singleChoiceTextQuizInstance?.hint}" />
+                                    <g:textArea name="hint" value="${singleChoiceTextQuizInstance?.hint}" />
                                 </td>
                             </tr>
-                        
+                        </tbody>
+                    </table>
+                    
+                    <div id="hint.translate" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.hint.translate', default: 'Hint translate')}" open="false" >
+                    <table>
+                        <tbody>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="hintDe"><g:message code="singleChoiceTextQuiz.hintDe.label" default="Hint De" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintDe', 'errors')}">
-                                    <g:textField name="hintDe" value="${singleChoiceTextQuizInstance?.hintDe}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="hintDeValidate"><g:message code="singleChoiceTextQuiz.hintDeValidate.label" default="Hint De Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintDeValidate', 'errors')}">
                                     <g:checkBox name="hintDeValidate" value="${singleChoiceTextQuizInstance?.hintDeValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintDe', 'errors')}">
+                                    <g:textArea name="hintDe" value="${singleChoiceTextQuizInstance?.hintDe}" />
                                 </td>
                             </tr>
                         
@@ -167,17 +155,11 @@
                                 <td valign="top" class="name">
                                     <label for="hintEs"><g:message code="singleChoiceTextQuiz.hintEs.label" default="Hint Es" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintEs', 'errors')}">
-                                    <g:textField name="hintEs" value="${singleChoiceTextQuizInstance?.hintEs}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="hintEsValidate"><g:message code="singleChoiceTextQuiz.hintEsValidate.label" default="Hint Es Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintEsValidate', 'errors')}">
                                     <g:checkBox name="hintEsValidate" value="${singleChoiceTextQuizInstance?.hintEsValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintEs', 'errors')}">
+                                    <g:textArea name="hintEs" value="${singleChoiceTextQuizInstance?.hintEs}" />
                                 </td>
                             </tr>
                         
@@ -185,17 +167,11 @@
                                 <td valign="top" class="name">
                                     <label for="hintFr"><g:message code="singleChoiceTextQuiz.hintFr.label" default="Hint Fr" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintFr', 'errors')}">
-                                    <g:textField name="hintFr" value="${singleChoiceTextQuizInstance?.hintFr}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="hintFrValidate"><g:message code="singleChoiceTextQuiz.hintFrValidate.label" default="Hint Fr Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintFrValidate', 'errors')}">
                                     <g:checkBox name="hintFrValidate" value="${singleChoiceTextQuizInstance?.hintFrValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintFr', 'errors')}">
+                                    <g:textArea name="hintFr" value="${singleChoiceTextQuizInstance?.hintFr}" />
                                 </td>
                             </tr>
                         
@@ -203,62 +179,55 @@
                                 <td valign="top" class="name">
                                     <label for="hintIt"><g:message code="singleChoiceTextQuiz.hintIt.label" default="Hint It" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintIt', 'errors')}">
-                                    <g:textField name="hintIt" value="${singleChoiceTextQuizInstance?.hintIt}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="hintItValidate"><g:message code="singleChoiceTextQuiz.hintItValidate.label" default="Hint It Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintItValidate', 'errors')}">
                                     <g:checkBox name="hintItValidate" value="${singleChoiceTextQuizInstance?.hintItValidate}" />
                                 </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintIt', 'errors')}">
+                                    <g:textArea name="hintIt" value="${singleChoiceTextQuizInstance?.hintIt}" />
+                                </td>
                             </tr>
                         
-                            <tr class="prop">
+                           <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="hintRo"><g:message code="singleChoiceTextQuiz.hintRo.label" default="Hint Ro" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintRo', 'errors')}">
-                                    <g:textField name="hintRo" value="${singleChoiceTextQuizInstance?.hintRo}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="hintRoValidate"><g:message code="singleChoiceTextQuiz.hintRoValidate.label" default="Hint Ro Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintRoValidate', 'errors')}">
                                     <g:checkBox name="hintRoValidate" value="${singleChoiceTextQuizInstance?.hintRoValidate}" />
                                 </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'hintRo', 'errors')}">
+                                    <g:textArea name="hintRo" value="${singleChoiceTextQuizInstance?.hintRo}" />
+                                </td>
                             </tr>
-                        
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <table>
+                        <tbody>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="question"><g:message code="singleChoiceTextQuiz.question.label" default="Question" /></label>
                                 </td>
+                                <td valign="top" class="name"></td>
                                 <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'question', 'errors')}">
-                                    <g:textField name="question" value="${singleChoiceTextQuizInstance?.question}" />
+                                    <g:textArea name="question" value="${singleChoiceTextQuizInstance?.question}" />
                                 </td>
                             </tr>
-                        
+                        </tbody>
+                    </table>
+                    
+                    <div id="question.translate" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.question.translate', default: 'Question translate')}" open="false" >
+                    <table>
+                        <tbody>    
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="questionDe"><g:message code="singleChoiceTextQuiz.questionDe.label" default="Question De" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionDe', 'errors')}">
-                                    <g:textField name="questionDe" value="${singleChoiceTextQuizInstance?.questionDe}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="questionDeValidate"><g:message code="singleChoiceTextQuiz.questionDeValidate.label" default="Question De Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionDeValidate', 'errors')}">
                                     <g:checkBox name="questionDeValidate" value="${singleChoiceTextQuizInstance?.questionDeValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionDe', 'errors')}">
+                                    <g:textArea name="questionDe" value="${singleChoiceTextQuizInstance?.questionDe}" />
                                 </td>
                             </tr>
                         
@@ -266,17 +235,11 @@
                                 <td valign="top" class="name">
                                     <label for="questionEs"><g:message code="singleChoiceTextQuiz.questionEs.label" default="Question Es" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionEs', 'errors')}">
-                                    <g:textField name="questionEs" value="${singleChoiceTextQuizInstance?.questionEs}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="questionEsValidate"><g:message code="singleChoiceTextQuiz.questionEsValidate.label" default="Question Es Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionEsValidate', 'errors')}">
                                     <g:checkBox name="questionEsValidate" value="${singleChoiceTextQuizInstance?.questionEsValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionEs', 'errors')}">
+                                    <g:textArea name="questionEs" value="${singleChoiceTextQuizInstance?.questionEs}" />
                                 </td>
                             </tr>
                         
@@ -284,35 +247,23 @@
                                 <td valign="top" class="name">
                                     <label for="questionFr"><g:message code="singleChoiceTextQuiz.questionFr.label" default="Question Fr" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionFr', 'errors')}">
-                                    <g:textField name="questionFr" value="${singleChoiceTextQuizInstance?.questionFr}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="questionFrValidate"><g:message code="singleChoiceTextQuiz.questionFrValidate.label" default="Question Fr Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionFrValidate', 'errors')}">
                                     <g:checkBox name="questionFrValidate" value="${singleChoiceTextQuizInstance?.questionFrValidate}" />
                                 </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionFr', 'errors')}">
+                                    <g:textArea name="questionFr" value="${singleChoiceTextQuizInstance?.questionFr}" />
+                                </td>
                             </tr>
-                        
+                            
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="questionIt"><g:message code="singleChoiceTextQuiz.questionIt.label" default="Question It" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionIt', 'errors')}">
-                                    <g:textField name="questionIt" value="${singleChoiceTextQuizInstance?.questionIt}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="questionItValidate"><g:message code="singleChoiceTextQuiz.questionItValidate.label" default="Question It Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionItValidate', 'errors')}">
                                     <g:checkBox name="questionItValidate" value="${singleChoiceTextQuizInstance?.questionItValidate}" />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionIt', 'errors')}">
+                                    <g:textArea name="questionIt" value="${singleChoiceTextQuizInstance?.questionIt}" />
                                 </td>
                             </tr>
                         
@@ -320,31 +271,98 @@
                                 <td valign="top" class="name">
                                     <label for="questionRo"><g:message code="singleChoiceTextQuiz.questionRo.label" default="Question Ro" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionRo', 'errors')}">
-                                    <g:textField name="questionRo" value="${singleChoiceTextQuizInstance?.questionRo}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="questionRoValidate"><g:message code="singleChoiceTextQuiz.questionRoValidate.label" default="Question Ro Validate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionRoValidate', 'errors')}">
                                     <g:checkBox name="questionRoValidate" value="${singleChoiceTextQuizInstance?.questionRoValidate}" />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="type"><g:message code="singleChoiceTextQuiz.type.label" default="Type" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'type', 'errors')}">
-                                    <g:select name="type" from="${com.bogdanmata.model.quiz.enums.QuizType?.values()}" keys="${com.bogdanmata.model.quiz.enums.QuizType?.values()*.name()}" value="${singleChoiceTextQuizInstance?.type?.name()}"  />
+                                <td valign="top" class="value ${hasErrors(bean: singleChoiceTextQuizInstance, field: 'questionRo', 'errors')}">
+                                    <g:textArea name="questionRo" value="${singleChoiceTextQuizInstance?.questionRo}" />
                                 </td>
                             </tr>
-                        
                         </tbody>
                     </table>
+                    </div>
+                    
+                    <div id="singleChoiceTextQuiz.responses" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.responses', default: 'Responses')}" open="false" >
+                    	<g:each var="r" in="${responses}" status="key">
+                    	<div id="singleChoiceTextQuiz.response.${r.key}" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.response', default: 'Response')}" open="false" >
+                    	<table>
+	                    	<tbody>
+                    		<tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="reponse.content.${r.key}"><g:message code="singleChoiceTextQuizResponse.content.label" default="Content" /></label>
+                                </td>
+                                <td valign="top" class="name"></td>
+                                <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'content', 'errors')}">
+                                    <g:textArea name="reponse.content.${r.key}" value="${responses[r]?.content}" />
+                                </td>
+                            </tr>
+	                        </tbody>
+	                    </table>
+	                    
+	                    <div id="singleChoiceTextQuiz.reponse.translate.${r.key}" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.response.translate', default: 'response translate')}" open="false" >
+	                    	<table>
+			                   	<tbody>
+		                   		<tr class="prop">
+		                            <td valign="top" class="name">
+		                                <label for="reponse.contentRo.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentRo.label" default="Content ro" /></label>
+		                            </td>
+		                            <td valign="top" class="name">
+		                              	<g:checkBox name="reponse.contentValidateRo.${r.key}" value="${responses[r]?.contentRoValidate}" />
+		                            </td>
+		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentRo', 'errors')}">
+		                                <g:textArea name="reponse.contentRo.${r.key}" value="${responses[r]?.contentRo}" />
+		                            </td>
+		                        </tr>
+		                        <tr class="prop">
+		                            <td valign="top" class="name">
+		                                <label for="reponse.contentFr.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentFr.label" default="Content fr" /></label>
+		                            </td>
+		                            <td valign="top" class="name">
+		                              	<g:checkBox name="reponse.contentValidateFr.${r.key}" value="${responses[r]?.contentFrValidate}" />
+		                            </td>
+		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentFr', 'errors')}">
+		                                <g:textArea name="reponse.contentFr.${r.key}" value="${responses[r]?.contentFr}" />
+		                            </td>
+		                        </tr>
+		                        <tr class="prop">
+		                            <td valign="top" class="name">
+		                                <label for="reponse.contentDe.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentDe.label" default="Content De" /></label>
+		                            </td>
+		                            <td valign="top" class="name">
+		                              	<g:checkBox name="reponse.contentValidateDe.${r.key}" value="${responses[r]?.contentDeValidate}" />
+		                            </td>
+		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentDe', 'errors')}">
+		                                <g:textArea name="reponse.contentDe.${r.key}" value="${responses[r]?.contentDe}" />
+		                            </td>
+		                        </tr>
+		                        <tr class="prop">
+		                            <td valign="top" class="name">
+		                                <label for="reponse.contentIt.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentIt.label" default="Content It" /></label>
+		                            </td>
+		                            <td valign="top" class="name">
+		                              	<g:checkBox name="reponse.contentValidateIt.${r.key}" value="${responses[r]?.contentItValidate}" />
+		                            </td>
+		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentIt', 'errors')}">
+		                                <g:textArea name="reponse.contentIt.${r.key}" value="${responses[r]?.contentIt}" />
+		                            </td>
+		                        </tr>
+		                        <tr class="prop">
+		                            <td valign="top" class="name">
+		                                <label for="reponse.contentEs.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentEs.label" default="Content es" /></label>
+		                            </td>
+		                            <td valign="top" class="name">
+		                              	<g:checkBox name="reponse.contentValidateEs.${r.key}" value="${responses[r]?.contentEsValidate}" />
+		                            </td>
+		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentEs', 'errors')}">
+		                                <g:textArea name="reponse.contentEs.${r.key}" value="${responses[r]?.contentEs}" />
+		                            </td>
+		                        </tr>
+			                    </tbody>
+			                </table>
+	                    </div>
+                    	</div>
+                    	</g:each>
+                    </div>
                 </div>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>

@@ -18,7 +18,20 @@ class SingleChoiceTextQuizController {
 
     def create = {
         def singleChoiceTextQuizInstance = new SingleChoiceTextQuiz()
-        singleChoiceTextQuizInstance.properties = params
+		singleChoiceTextQuizInstance.properties = params
+		
+//		Property[] properties = Property.findAll("from Property p where p.owner.id is null")
+		def properties = Property.findAll("from Property p")
+		def map = [:]
+		properties.each {
+			map[it.name] = it.value 
+		}
+		singleChoiceTextQuizInstance.help = map["com.bogdanmata.quiz.model.SingleChoiceTextQuiz.help.en"]
+		singleChoiceTextQuizInstance.helpRo = map["com.bogdanmata.quiz.model.SingleChoiceTextQuiz.help.ro"]
+		singleChoiceTextQuizInstance.helpFr = map["com.bogdanmata.quiz.model.SingleChoiceTextQuiz.help.fr"]
+		singleChoiceTextQuizInstance.helpDe = map["com.bogdanmata.quiz.model.SingleChoiceTextQuiz.help.de"]
+		singleChoiceTextQuizInstance.helpIt = map["com.bogdanmata.quiz.model.SingleChoiceTextQuiz.help.it"]
+		singleChoiceTextQuizInstance.helpEs = map["com.bogdanmata.quiz.model.SingleChoiceTextQuiz.help.es"]
 		
 		// add 3 empty responses
 		def responses = [:]
