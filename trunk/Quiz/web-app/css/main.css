@@ -26,6 +26,13 @@ a:link, a:visited, a:hover {
     text-decoration: none;
 }
 
+a.fakeLink {
+    color: #666;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 h1 {
     color: #48802c;
     font-weight: normal;
@@ -47,8 +54,20 @@ input, select, textarea {
 select {
    padding: 2px 2px 2px 0;
 }
-textarea {
-	width: 250px;
+
+textarea.small {
+	width: 400px;
+	vertical-align: top;
+}
+
+textarea.medium {
+	width: 400px;
+	height: 100px;
+	vertical-align: top;
+}
+
+textarea.large {
+	width: 400px;
 	height: 150px;
 	vertical-align: top;
 }
@@ -276,6 +295,6 @@ th.desc a {
 	top: 20px;
 	left:280px;
 	margin-right: 20px;
-	width: 500px;
+	width: 700px;
     float: left;
 }

@@ -4,21 +4,25 @@ class QuizGroupMappingController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	@Deprecated
     def index = {
         redirect(action: "list", params: params)
     }
 
+	@Deprecated
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [quizGroupMappingInstanceList: QuizGroupMapping.list(params), quizGroupMappingInstanceTotal: QuizGroupMapping.count()]
     }
 
+	@Deprecated
     def create = {
         def quizGroupMappingInstance = new QuizGroupMapping()
         quizGroupMappingInstance.properties = params
         return [quizGroupMappingInstance: quizGroupMappingInstance]
     }
 
+	@Deprecated
     def save = {
         def quizGroupMappingInstance = new QuizGroupMapping(params)
         if (quizGroupMappingInstance.save(flush: true)) {
@@ -30,6 +34,7 @@ class QuizGroupMappingController {
         }
     }
 
+	@Deprecated
     def show = {
         def quizGroupMappingInstance = QuizGroupMapping.get(params.id)
         if (!quizGroupMappingInstance) {
@@ -41,6 +46,7 @@ class QuizGroupMappingController {
         }
     }
 
+	@Deprecated
     def edit = {
         def quizGroupMappingInstance = QuizGroupMapping.get(params.id)
         if (!quizGroupMappingInstance) {
@@ -52,6 +58,7 @@ class QuizGroupMappingController {
         }
     }
 
+	@Deprecated
     def update = {
         def quizGroupMappingInstance = QuizGroupMapping.get(params.id)
         if (quizGroupMappingInstance) {
@@ -79,6 +86,7 @@ class QuizGroupMappingController {
         }
     }
 
+	@Deprecated
     def delete = {
         def quizGroupMappingInstance = QuizGroupMapping.get(params.id)
         if (quizGroupMappingInstance) {
@@ -97,4 +105,16 @@ class QuizGroupMappingController {
             redirect(action: "list")
         }
     }
+	
+	// TODO
+	def findGroups = {}
+	
+	// TODO
+	def findQuizs = {}
+	
+	// TODO
+	def saveGroupsForQuiz = {}
+	
+	// TODO
+	def saveQuizsForGroup = {}
 }

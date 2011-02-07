@@ -8,10 +8,15 @@ class SingleChoiceTextQuizResponse implements Serializable {
 	
 	String content
 	String contentRo
+	boolean contentRoValidate
 	String contentFr
+	boolean contentFrValidate
 	String contentDe
+	boolean contentDeValidate
 	String contentIt
+	boolean contentItValidate
 	String contentEs
+	boolean contentEsValidate
 	
 	static belongsTo = [quiz: SingleChoiceTextQuiz]
 	

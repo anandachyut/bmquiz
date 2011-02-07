@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.bogdanmata.model.quiz.SingleChoiceTextQuiz" %>
 <html>
     <head>
