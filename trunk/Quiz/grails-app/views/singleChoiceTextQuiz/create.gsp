@@ -283,78 +283,81 @@
                     </div>
                     
                     <div id="singleChoiceTextQuiz.responses" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.responses', default: 'Responses')}" open="false" >
+                    	
                     	<g:each var="r" in="${responses}" status="key">
                     	<div id="singleChoiceTextQuiz.response.${r.key}" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.response', default: 'Response')}" open="false" >
                     	<table>
 	                    	<tbody>
                     		<tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="reponse.content.${r.key}"><g:message code="singleChoiceTextQuizResponse.content.label" default="Content" /></label>
+                                    <label for="response.content.${r.key}"><g:message code="singleChoiceTextQuizResponse.content.label" default="Content" /></label>
                                 </td>
-                                <td valign="top" class="name"></td>
+                                <td valign="top" class="name">
+                                	<g:checkBox name="correct" value="${r.key}" />
+                                </td>
                                 <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'content', 'errors')}">
-                                    <g:textArea name="reponse.content.${r.key}" value="${responses[r]?.content}" />
+                                    <g:textArea name="response.content.${r.key}" value="${responses[r]?.content}" />
                                 </td>
                             </tr>
 	                        </tbody>
 	                    </table>
 	                    
-	                    <div id="singleChoiceTextQuiz.reponse.translate.${r.key}" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.response.translate', default: 'response translate')}" open="false" >
+	                    <div id="singleChoiceTextQuiz.response.translate.${r.key}" dojoType="dijit.TitlePane" title="${message(code: 'singleChoiceTextQuiz.response.translate', default: 'response translate')}" open="false" >
 	                    	<table>
 			                   	<tbody>
 		                   		<tr class="prop">
 		                            <td valign="top" class="name">
-		                                <label for="reponse.contentRo.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentRo.label" default="Content ro" /></label>
+		                                <label for="response.contentRo.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentRo.label" default="Content ro" /></label>
 		                            </td>
 		                            <td valign="top" class="name">
-		                              	<g:checkBox name="reponse.contentValidateRo.${r.key}" value="${responses[r]?.contentRoValidate}" />
+		                              	<g:checkBox name="response.contentValidateRo.${r.key}" value="${responses[r]?.contentRoValidate}" />
 		                            </td>
 		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentRo', 'errors')}">
-		                                <g:textArea name="reponse.contentRo.${r.key}" value="${responses[r]?.contentRo}" />
+		                                <g:textArea name="response.contentRo.${r.key}" value="${responses[r]?.contentRo}" />
 		                            </td>
 		                        </tr>
 		                        <tr class="prop">
 		                            <td valign="top" class="name">
-		                                <label for="reponse.contentFr.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentFr.label" default="Content fr" /></label>
+		                                <label for="response.contentFr.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentFr.label" default="Content fr" /></label>
 		                            </td>
 		                            <td valign="top" class="name">
-		                              	<g:checkBox name="reponse.contentValidateFr.${r.key}" value="${responses[r]?.contentFrValidate}" />
+		                              	<g:checkBox name="response.contentValidateFr.${r.key}" value="${responses[r]?.contentFrValidate}" />
 		                            </td>
 		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentFr', 'errors')}">
-		                                <g:textArea name="reponse.contentFr.${r.key}" value="${responses[r]?.contentFr}" />
+		                                <g:textArea name="response.contentFr.${r.key}" value="${responses[r]?.contentFr}" />
 		                            </td>
 		                        </tr>
 		                        <tr class="prop">
 		                            <td valign="top" class="name">
-		                                <label for="reponse.contentDe.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentDe.label" default="Content De" /></label>
+		                                <label for="response.contentDe.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentDe.label" default="Content De" /></label>
 		                            </td>
 		                            <td valign="top" class="name">
-		                              	<g:checkBox name="reponse.contentValidateDe.${r.key}" value="${responses[r]?.contentDeValidate}" />
+		                              	<g:checkBox name="response.contentValidateDe.${r.key}" value="${responses[r]?.contentDeValidate}" />
 		                            </td>
 		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentDe', 'errors')}">
-		                                <g:textArea name="reponse.contentDe.${r.key}" value="${responses[r]?.contentDe}" />
+		                                <g:textArea name="response.contentDe.${r.key}" value="${responses[r]?.contentDe}" />
 		                            </td>
 		                        </tr>
 		                        <tr class="prop">
 		                            <td valign="top" class="name">
-		                                <label for="reponse.contentIt.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentIt.label" default="Content It" /></label>
+		                                <label for="response.contentIt.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentIt.label" default="Content It" /></label>
 		                            </td>
 		                            <td valign="top" class="name">
-		                              	<g:checkBox name="reponse.contentValidateIt.${r.key}" value="${responses[r]?.contentItValidate}" />
+		                              	<g:checkBox name="response.contentValidateIt.${r.key}" value="${responses[r]?.contentItValidate}" />
 		                            </td>
 		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentIt', 'errors')}">
-		                                <g:textArea name="reponse.contentIt.${r.key}" value="${responses[r]?.contentIt}" />
+		                                <g:textArea name="response.contentIt.${r.key}" value="${responses[r]?.contentIt}" />
 		                            </td>
 		                        </tr>
 		                        <tr class="prop">
 		                            <td valign="top" class="name">
-		                                <label for="reponse.contentEs.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentEs.label" default="Content es" /></label>
+		                                <label for="response.contentEs.${r.key}"><g:message code="singleChoiceTextQuizResponse.contentEs.label" default="Content es" /></label>
 		                            </td>
 		                            <td valign="top" class="name">
-		                              	<g:checkBox name="reponse.contentValidateEs.${r.key}" value="${responses[r]?.contentEsValidate}" />
+		                              	<g:checkBox name="response.contentValidateEs.${r.key}" value="${responses[r]?.contentEsValidate}" />
 		                            </td>
 		                            <td valign="top" class="value ${hasErrors(bean: responses[r], field: 'contentEs', 'errors')}">
-		                                <g:textArea name="reponse.contentEs.${r.key}" value="${responses[r]?.contentEs}" />
+		                                <g:textArea name="response.contentEs.${r.key}" value="${responses[r]?.contentEs}" />
 		                            </td>
 		                        </tr>
 			                    </tbody>
