@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.bogdanmata.model.quiz.AbstractQuiz" %>
 <html>
     <head>
@@ -7,6 +5,10 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'abstractQuiz.label', default: 'AbstractQuiz')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <g:javascript>
+        	dojo.require("dijit.form.TextBox");
+        	dojo.require("dijit.form.ComboBox");
+        </g:javascript>
     </head>
     <body>
         <div class="nav">
@@ -26,19 +28,17 @@
             <g:form action="save" >
                 <div class="dialog">
                     <table>
-                        <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
+                            <tr>
+                                <td>
                                     <label for="help"><g:message code="abstractQuiz.help.label" default="Help" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'help', 'errors')}">
-                                    <g:textField name="help" value="${abstractQuizInstance?.help}" />
+                                <td>
+                                    <g:textField name="help" dojoType="dijit.form.TextBox" value="${abstractQuizInstance?.help}" />
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
+                            <tr>
+                                <td>
                                     <label for="helpDe"><g:message code="abstractQuiz.helpDe.label" default="Help De" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'helpDe', 'errors')}">
@@ -131,13 +131,13 @@
                                 <td valign="top" class="name">
                                     <label for="hint"><g:message code="abstractQuiz.hint.label" default="Hint" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'hint', 'errors')}">
-                                    <g:textField name="hint" value="${abstractQuizInstance?.hint}" />
+                                <td>
+                                    <g:textField name="hint" dojoType="dijit.form.TextBox" value="${abstractQuizInstance?.hint}" />
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
+                            <tr>
+                                <td>
                                     <label for="hintDe"><g:message code="abstractQuiz.hintDe.label" default="Hint De" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'hintDe', 'errors')}">
@@ -230,13 +230,12 @@
                                 <td valign="top" class="name">
                                     <label for="question"><g:message code="abstractQuiz.question.label" default="Question" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'question', 'errors')}">
-                                    <g:textField name="question" value="${abstractQuizInstance?.question}" />
+                                <td>
+                                    <g:textField name="question" dojoType="dijit.form.TextBox" value="${abstractQuizInstance?.question}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
+                        	<tr>
+                                <td>
                                     <label for="questionDe"><g:message code="abstractQuiz.questionDe.label" default="Question De" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'questionDe', 'errors')}">
@@ -329,11 +328,10 @@
                                 <td valign="top" class="name">
                                     <label for="type"><g:message code="abstractQuiz.type.label" default="Type" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: abstractQuizInstance, field: 'type', 'errors')}">
-                                    <g:select name="type" from="${com.bogdanmata.model.quiz.enums.QuizType?.values()}" keys="${com.bogdanmata.model.quiz.enums.QuizType?.values()*.name()}" value="${abstractQuizInstance?.type?.name()}"  />
+                                <td>
+                                    <g:select name="type" dojoType="dijit.form.ComboBox" from="${com.bogdanmata.model.quiz.enums.QuizType?.values()}" keys="${com.bogdanmata.model.quiz.enums.QuizType?.values()*.name()}" value="${abstractQuizInstance?.type?.name()}"  />
                                 </td>
                             </tr>
-                        
                         </tbody>
                     </table>
                 </div>

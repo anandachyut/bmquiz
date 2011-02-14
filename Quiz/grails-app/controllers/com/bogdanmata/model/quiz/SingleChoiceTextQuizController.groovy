@@ -43,20 +43,47 @@ class SingleChoiceTextQuizController {
     }
 
     def save = {
-        def singleChoiceTextQuizInstance = new SingleChoiceTextQuiz(params)
+        def singleChoiceTextQuizInstance = new SingleChoiceTextQuiz()
+		singleChoiceTextQuizInstance.properties = params
 		
 		def responses = [:]
+		def parameters = params
 		
-		params.each { String key, value ->
-			if(key.endsWith("response")) {
-				String reponseId = key.substring(0, key.indexOf('.'))
-				if(responses[reponseId] == null) {
-					responses[reponseId] = new SingleChoiceTextQuizResponse()
+		parameters.each {key, value ->
+			// def value = params[key]
+			System.out.println(key + "-> " + value);
+			if(key.startsWith("response.content")) {
+				String typeId = key.substring(0, key.lastIndexOf('.'))
+				String responseId = key.substring(key.lastIndexOf('.') + 1)
+				System.out.println(typeId + "-> " + responseId);
+				if(responses[responseId] == null) {
+					responses[responseId] = new SingleChoiceTextQuizResponse()
+				}
+				
+				switch(typeId) {
+					case "response.content":
+						responses[responseId].content = value
+						break; 
+					case "response.contentRo":
+						responses[responseId].contentRo = value
+						break;
+					case "response.contentFr":
+						responses[responseId].contentFr = value
+						break;
+					case "response.contentDe":
+						responses[responseId].contentDe = value
+						break;
+					case "response.contentIt":
+						responses[responseId].contentIt = value
+						break;
+					case "response.contentEs":
+						responses[responseId].contentEs = value
+						break;
 				}
 			}
 		}
 		
-		def correctKey = params[correct];
+		def correctKey = params["correct"];
 		
 		singleChoiceTextQuizInstance.responses = responses.values()
 		singleChoiceTextQuizInstance.correctResponse = responses[correctKey]
